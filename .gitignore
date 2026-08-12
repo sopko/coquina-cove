@@ -42,3 +42,6 @@ yarn-error.log*
 # Source reference materials retained outside the deployed site
 /old site/
 /New Images/
+/new-new-images/
+/static-site/
+/coquina-cove-static.zip
