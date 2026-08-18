@@ -1,30 +1,67 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
-const photos = [
-  { src: "/images/deck-sunset.jpeg", alt: "Sunset over the Gulf from Coquina Cove's covered deck", label: "The sunset deck" },
-  { src: "/images/master-bedroom-1.jpg", alt: "Primary bedroom with a king bed and private Gulf-view balcony", label: "Gulf-view primary suite" },
-  { src: "/images/master-bedroom-2.jpg", alt: "Second view of the bright primary bedroom", label: "The primary bedroom" },
-  { src: "/images/guest-room.jpg", alt: "Guest bedroom with a colorful queen bed", label: "Guest bedroom" },
-  { src: "/images/guest-room-2.jpg", alt: "Second guest bedroom with a queen bed", label: "Second guest bedroom" },
-  { src: "/images/living-area.jpg", alt: "Dining and living area with a broad Gulf view", label: "Living by the water" },
-  { src: "/images/big-window.jpg", alt: "Arched picture window framing the beach and Gulf", label: "The big window" },
-  { src: "/images/balcony-view.jpg", alt: "Beach and Gulf viewed from the balcony", label: "Balcony view" },
-  { src: "/images/statue-outside.jpg", alt: "Coquina Cove and its beachside statue on a clear day", label: "Steps from the sand" },
-  { src: "/images/garage.jpg", alt: "Coquina Cove garage and parking area", label: "Room to arrive" },
-  { src: "/images/gulf-photo.jpg", alt: "Sunset waves along the Manasota Key shoreline", label: "Evening shoreline" },
-  { src: "/images/golden-hour-1.jpg", alt: "Palm silhouettes at golden hour", label: "Golden hour palms" },
-  { src: "/images/golden-hour-2.jpg", alt: "Golden sunset viewed from the deck", label: "Deck at golden hour" },
-  { src: "/images/golden-hour-3.jpg", alt: "Sunset framed by the ground-floor patio", label: "Sunset downstairs" },
-  { src: "/images/kitchen-island.jpg", alt: "Open kitchen and dining room with Gulf views", label: "Open-plan living" },
-  { src: "/images/beach-view.jpg", alt: "Quiet beach and Gulf view from Coquina Cove", label: "Your backyard" },
-  { src: "/images/kitchen-view.jpg", alt: "Bright fully equipped kitchen", label: "The kitchen" },
-  { src: "/images/living-room.jpg", alt: "Comfortable living room seating", label: "Room to unwind" },
-  { src: "/images/house-front.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" },
-  { src: "/images/lower-seating.jpg", alt: "Covered lower-level seating area", label: "Shaded lounge" },
-  { src: "/images/gulf-sunset.jpg", alt: "Pink sunset over the Gulf of Mexico", label: "Golden hour" },
+const photoGroups = [
+  {
+    title: "Great Room & Views",
+    photos: [
+      { src: "/images/balcony-view.jpg", alt: "Beach and Gulf viewed from the balcony", label: "Balcony view" },
+      { src: "/images/big-window-straightened.jpg", alt: "Straightened arched picture window framing the beach and Gulf", label: "The arched window" },
+      { src: "/images/living-area.jpg", alt: "Dining and living area with a broad Gulf view", label: "Living by the water" },
+      { src: "/images/kitchen-island.jpg", alt: "Open kitchen and dining room with Gulf views", label: "Open-plan great room" },
+      { src: "/images/kitchen-view.jpg", alt: "Bright fully equipped kitchen", label: "The kitchen" },
+      { src: "/images/deck-sunset.jpeg", alt: "Sunset over the Gulf from Coquina Cove's covered deck", label: "The sunset deck" },
+      { src: "/images/golden-hour-2.jpg", alt: "Golden sunset viewed from the deck", label: "Deck at golden hour" },
+      { src: "/images/beach-view.jpg", alt: "Quiet beach and Gulf view from Coquina Cove", label: "Your backyard" },
+      { src: "/images/gulf-sunset.jpg", alt: "Pink sunset over the Gulf of Mexico", label: "Gulf sunset" },
+    ],
+  },
+  {
+    title: "Living Room Furniture",
+    photos: [
+      { src: "/images/living-room.jpg", alt: "Comfortable living room furniture", label: "Living room seating" },
+    ],
+  },
+  {
+    title: "Primary Bedroom",
+    photos: [
+      { src: "/images/master-bedroom-1.jpg", alt: "Primary bedroom with a king bed and private Gulf-view balcony", label: "Gulf-view primary suite" },
+      { src: "/images/master-bedroom-2.jpg", alt: "Second view of the bright primary bedroom", label: "Primary bedroom" },
+      { src: "/images/shower.jpg", alt: "Walk-in shower in the primary bathroom", label: "Primary bath shower" },
+    ],
+  },
+  {
+    title: "Two Guest Bedrooms",
+    photos: [
+      { src: "/images/guest-room.jpg", alt: "Guest bedroom with a colorful queen bed", label: "Guest bedroom one" },
+      { src: "/images/guest-room-2.jpg", alt: "Second guest bedroom with a queen bed", label: "Guest bedroom two" },
+    ],
+  },
+  {
+    title: "Downstairs Seating Area",
+    photos: [
+      { src: "/images/shaded-ground-level-seating-1.jpg", alt: "Gray wicker furniture against the bright blue wall downstairs", label: "Shaded wicker lounge" },
+      { src: "/images/shaded-ground-level-seating-2.jpg", alt: "Wide view of the shaded ground-level seating area", label: "Ground-level seating" },
+      { src: "/images/lower-seating.jpg", alt: "Covered lower-level seating area", label: "Covered lounge" },
+      { src: "/images/lower-patio.jpg", alt: "Patio seating beneath Coquina Cove", label: "Downstairs patio" },
+    ],
+  },
+  {
+    title: "View from Downstairs Area",
+    photos: [
+      { src: "/images/gulf-view.jpeg", alt: "Gulf sunset framed by the downstairs patio", label: "View from downstairs" },
+      { src: "/images/golden-hour-3.jpg", alt: "Sunset framed by the ground-floor patio", label: "Sunset downstairs" },
+      { src: "/images/statue-outside.jpg", alt: "Coquina Cove and its beachside statue on a clear day", label: "Steps from the sand" },
+      { src: "/images/gulf-photo.jpg", alt: "Sunset waves along the Manasota Key shoreline", label: "Evening shoreline" },
+      { src: "/images/golden-hour-1.jpg", alt: "Palm silhouettes at golden hour", label: "Golden hour palms" },
+      { src: "/images/garage.jpg", alt: "Coquina Cove garage and parking area", label: "Garage and parking" },
+      { src: "/images/house-front.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" },
+    ],
+  },
 ];
+
+const photos = photoGroups.flatMap((group) => group.photos);
 
 const amenities = [
   ["Sleep easy", "1 king · 2 queens · sleeps 6"],
@@ -98,7 +135,7 @@ export default function Home() {
           <figure className="feature-main"><img src="/images/beach-view.jpg" alt="Quiet Gulf beach behind Coquina Cove" /><figcaption>Beach access, just beyond the sea oats</figcaption></figure>
           <div className="feature-side">
             <figure><img src="/images/kitchen-island.jpg" alt="Open kitchen with a view toward the Gulf" /></figure>
-            <blockquote>“We watched dolphins swim, took long walks on the beach every morning, and enjoyed sensational sunsets each evening.”<cite>— The Fabrizio family</cite></blockquote>
+            <blockquote>“From the moment you walk in the door at Coquina Cove, the view of the ocean and beach will take your breath away.”<cite>— From the guest book</cite></blockquote>
           </div>
         </div>
       </section>
@@ -120,11 +157,26 @@ export default function Home() {
           <div><p className="eyebrow">A closer look</p><h2>Make yourself<br />at home.</h2></div>
           <p>Bright rooms, unfussy comfort, and a little bit of the Gulf in every view.</p>
         </div>
-        <div className="photo-grid">
-          {photos.map((photo, index) => (
-            <button className={`photo photo-${index + 1}`} key={photo.src} onClick={() => setActivePhoto(index)} aria-label={`View ${photo.label}`}>
-              <img src={photo.src} alt={photo.alt} /><span>{photo.label} <b>＋</b></span>
-            </button>
+        <div className="room-gallery">
+          {photoGroups.map((group, groupIndex) => (
+            <section className="gallery-group" key={group.title} aria-labelledby={`gallery-group-${groupIndex}`}>
+              <div className="gallery-group-heading"><span>0{groupIndex + 1}</span><h3 id={`gallery-group-${groupIndex}`}>{group.title}</h3></div>
+              <div className="photo-grid">
+                {group.photos.map((photo, photoIndex) => {
+                  const index = photos.indexOf(photo);
+                  return (
+                    <Fragment key={photo.src}>
+                      <button className="photo" onClick={() => setActivePhoto(index)} aria-label={`View ${photo.label}`}>
+                        <img src={photo.src} alt={photo.alt} /><span>{photo.label} <b>＋</b></span>
+                      </button>
+                      {groupIndex === 0 && photoIndex === 0 && (
+                        <blockquote className="gallery-quote">“We watched dolphins swim, took long walks on the beach every morning, and enjoyed sensational sunsets each evening.”<cite>— The Fabrizio family</cite></blockquote>
+                      )}
+                    </Fragment>
+                  );
+                })}
+              </div>
+            </section>
           ))}
         </div>
         <button className="text-button" onClick={() => setActivePhoto(0)}>View all photos <span>→</span></button>
