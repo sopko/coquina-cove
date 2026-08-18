@@ -7,7 +7,7 @@ const photoGroups = [
     title: "Great Room & Views",
     photos: [
       { src: "/images/balcony-view.jpg", alt: "Beach and Gulf viewed from the balcony", label: "Balcony view" },
-      { src: "/images/big-window-straightened.jpg", alt: "Straightened arched picture window framing the beach and Gulf", label: "The arched window" },
+      { src: "/images/big-window.jpg", alt: "Arched picture window framing the beach and Gulf", label: "The arched window" },
       { src: "/images/living-area.jpg", alt: "Dining and living area with a broad Gulf view", label: "Living by the water" },
       { src: "/images/kitchen-island.jpg", alt: "Open kitchen and dining room with Gulf views", label: "Open-plan great room" },
       { src: "/images/kitchen-view.jpg", alt: "Bright fully equipped kitchen", label: "The kitchen" },
