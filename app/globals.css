@@ -31,7 +31,8 @@ h1,h2 { margin:0; font:400 64px/1.03 Georgia, "Times New Roman", serif; letter-s
 h1 { font-size:clamp(56px,7.2vw,108px); text-shadow:0 2px 20px rgba(0,0,0,.12); }
 h1 em,h2 em { color:var(--sun); font-weight:400; }
 .hero h1,.hero h1 em { color:white; }
-.hero .eyebrow,.hero .hero-copy,.hero .button,.hero .scroll-cue { color:#f39a63; }
+.hero .eyebrow,.hero .button,.hero .scroll-cue { color:#f39a63; }
+.hero .hero-copy { color:white; }
 .hero .button { border-color:#f39a63; }
 .hero-facts span { color:#f39a63; }
 .hero-facts b { color:white; }

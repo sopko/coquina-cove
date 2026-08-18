@@ -41,8 +41,6 @@ const photoGroups = [
   {
     title: "Downstairs Seating Area",
     photos: [
-      { src: "/images/shaded-ground-level-seating-1.jpg", alt: "Gray wicker furniture against the bright blue wall downstairs", label: "Shaded wicker lounge" },
-      { src: "/images/shaded-ground-level-seating-2.jpg", alt: "Wide view of the shaded ground-level seating area", label: "Ground-level seating" },
       { src: "/images/lower-seating.jpg", alt: "Covered lower-level seating area", label: "Covered lounge" },
       { src: "/images/lower-patio.jpg", alt: "Patio seating beneath Coquina Cove", label: "Downstairs patio" },
     ],
