@@ -142,17 +142,10 @@ figure { margin:0; }
 .calendar-day.is-booked b { background:var(--coral); color:white; }
 .calendar-day.is-booked span { color:#a3422e; }
 .calendar-day.is-empty { background:#f4f3ed; }
-.calendar-footer { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-top:30px; }
-.calendar-footer p { margin:0; font:24px Georgia,serif; }
-.calendar-footer .button { color:var(--ink); }
-.inquiry { position:relative; min-height:660px; display:grid; place-items:center; padding:100px 20px; color:white; overflow:hidden; }
-.inquiry>img { position:absolute; inset:0; height:100%; object-fit:cover; }
-.inquiry::after { content:""; position:absolute; inset:0; background:rgba(8,34,42,.56); }
-.inquiry-content { position:relative; z-index:2; max-width:680px; text-align:center; }
-.inquiry-content .eyebrow::before { display:none; }
-.inquiry h2 { font-size:clamp(54px,7vw,94px); }
-.inquiry p:not(.eyebrow) { max-width:540px; margin:25px auto 30px; font:16px/1.7 Georgia,serif; }
-.inquiry small { display:block; margin-top:18px; font-size:9px; letter-spacing:.1em; text-transform:uppercase; }
+.calendar-footer { display:flex; align-items:center; justify-content:space-between; gap:30px; margin-top:34px; padding:34px; background:var(--coral); color:white; }
+.calendar-footer p { margin:0 0 7px; font:30px Georgia,serif; }
+.calendar-footer small { display:block; max-width:580px; font-size:10px; line-height:1.5; letter-spacing:.06em; }
+.calendar-footer .button { flex:none; color:white; border-color:rgba(255,255,255,.8); }
 footer { display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:40px; padding:70px 7vw 25px; background:#0b222a; color:white; }
 footer>p { margin:0; color:#9eb0b2; font:14px/1.6 Georgia,serif; }
 .footer-links { display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:10px; text-transform:uppercase; letter-spacing:.14em; }
@@ -224,7 +217,7 @@ footer>p { margin:0; color:#9eb0b2; font:14px/1.6 Georgia,serif; }
   .calendar-day { min-height:70px; padding:8px; }
   .calendar-day span { margin-top:10px; font-size:7px; }
   .calendar-toolbar strong { font-size:25px; }
-  .calendar-footer { align-items:flex-start; flex-direction:column; }
+  .calendar-footer { align-items:flex-start; flex-direction:column; margin-top:26px; padding:28px 20px; }
   footer { grid-template-columns:1fr; }
   .footer-bottom { grid-column:1; }
   .lightbox { grid-template-columns:42px 1fr 42px; padding:15px 6px; }

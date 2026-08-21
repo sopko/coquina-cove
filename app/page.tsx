@@ -112,7 +112,7 @@ export default function Home() {
           <a href="#gallery" onClick={closeMenu}>Gallery</a>
           <a href="#explore" onClick={closeMenu}>Explore</a>
           <a href="#availability" onClick={closeMenu}>Availability</a>
-          <a className="nav-cta" href="#inquire" onClick={closeMenu}>Plan your stay</a>
+          <a className="nav-cta" href="#availability" onClick={closeMenu}>Plan your stay</a>
         </nav>
       </header>
 
@@ -240,18 +240,10 @@ export default function Home() {
               </div>
             ) : <div className="calendar-day is-empty" aria-hidden="true" key={`empty-${index}`} />)}
           </div>
-          <div className="calendar-footer"><p>See dates that work?</p><a className="button" href="mailto:Marg@sunshinerentals.net?subject=Coquina%20Cove%20availability%20request">Ask about your stay <span>↗</span></a></div>
-        </div>
-      </section>
-
-      <section className="inquiry" id="inquire">
-        <img src="/images/gulf-sunset.jpg" alt="Pink and gold Gulf sunset" />
-        <div className="inquiry-content">
-          <p className="eyebrow light">Your beach week awaits</p>
-          <h2>Save your seat<br />for sunset.</h2>
-          <p>Most stays run Saturday to Saturday. Check-in is at 4 PM and check-out is at 10 AM. Send an inquiry to confirm your dates.</p>
-          <a className="button button-light" href="mailto:Marg@sunshinerentals.net?subject=Coquina%20Cove%20availability%20request">Ask about your dates <span>↗</span></a>
-          <small>Rental inquiries are handled by Sunshine Rentals.</small>
+          <div className="calendar-footer">
+            <div><p>See dates that work?</p><small>Most stays run Saturday to Saturday. Contact Sunshine Rentals to confirm your week.</small></div>
+            <a className="button button-light" href="mailto:Marg@sunshinerentals.net?subject=Coquina%20Cove%20availability%20request">Contact Sunshine Rentals <span>↗</span></a>
+          </div>
         </div>
       </section>
 
