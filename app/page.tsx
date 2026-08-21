@@ -67,9 +67,23 @@ const amenities = [
   ["Bring the toys", "Oversized two-car garage with boat or camper space"],
 ];
 
+const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function isSampleBooked(date: Date, monthOffset: number) {
+  const day = date.getDate();
+  return (monthOffset % 3 === 0 && day >= 7 && day <= 13) ||
+    (monthOffset % 3 === 1 && day >= 18 && day <= 24) ||
+    (monthOffset % 3 === 2 && ((day >= 4 && day <= 8) || (day >= 22 && day <= 27)));
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
+  const [calendarMonth, setCalendarMonth] = useState(0);
+  const today = new Date();
+  const viewMonth = new Date(today.getFullYear(), today.getMonth() + calendarMonth, 1);
+  const daysInMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0).getDate();
+  const calendarDays = Array.from({ length: viewMonth.getDay() + daysInMonth }, (_, index) => index < viewMonth.getDay() ? null : new Date(viewMonth.getFullYear(), viewMonth.getMonth(), index - viewMonth.getDay() + 1));
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -97,6 +111,7 @@ export default function Home() {
           <a href="#stay" onClick={closeMenu}>The stay</a>
           <a href="#gallery" onClick={closeMenu}>Gallery</a>
           <a href="#explore" onClick={closeMenu}>Explore</a>
+          <a href="#availability" onClick={closeMenu}>Availability</a>
           <a className="nav-cta" href="#inquire" onClick={closeMenu}>Plan your stay</a>
         </nav>
       </header>
@@ -108,7 +123,7 @@ export default function Home() {
           <p className="eyebrow light">A Gulf-front escape on Manasota Key</p>
           <h1>Life looks better<br /><em>from the water’s edge.</em></h1>
           <p className="hero-copy">A light-filled three-bedroom home where quiet beach days flow into front-row sunsets.</p>
-          <a className="button button-light" href="#inquire">Check availability <span>↗</span></a>
+          <a className="button button-light" href="#availability">Check availability <span>↗</span></a>
         </div>
         <div className="hero-facts" aria-label="Property highlights">
           <span><b>6</b> guests</span><span><b>3</b> bedrooms</span><span><b>2</b> baths</span><span><b>0</b> steps to the sand</span>
@@ -199,6 +214,36 @@ export default function Home() {
         <p>— Guests from Nova Scotia</p>
       </section>
 
+      <section className="availability section" id="availability">
+        <div className="availability-intro">
+          <div>
+            <p className="eyebrow">Plan your beach week</p>
+            <h2>Find your<br />open dates.</h2>
+          </div>
+          <div className="availability-copy">
+            <p>Browse the next twelve months to find an open week. Dates marked booked are unavailable; all other future dates are currently open.</p>
+            <div className="calendar-legend"><span><i className="available-dot" />Available</span><span><i className="booked-dot" />Booked</span></div>
+            <small className="sample-notice">Sample availability for layout review. Live Google Calendar dates will replace these when connected.</small>
+          </div>
+        </div>
+        <div className="calendar-shell">
+          <div className="calendar-toolbar">
+            <button type="button" onClick={() => setCalendarMonth(Math.max(0, calendarMonth - 1))} disabled={calendarMonth === 0} aria-label="Previous month">←</button>
+            <div><strong>{viewMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}</strong><small>Month {calendarMonth + 1} of 12</small></div>
+            <button type="button" onClick={() => setCalendarMonth(Math.min(11, calendarMonth + 1))} disabled={calendarMonth === 11} aria-label="Next month">→</button>
+          </div>
+          <div className="calendar-grid" role="grid" aria-label={`Availability for ${viewMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}`}>
+            {weekDays.map((day) => <div className="calendar-weekday" role="columnheader" key={day}>{day}</div>)}
+            {calendarDays.map((date, index) => date ? (
+              <div className={`calendar-day ${isSampleBooked(date, calendarMonth) ? "is-booked" : "is-available"}`} role="gridcell" aria-label={`${date.toLocaleDateString("en-US", { month: "long", day: "numeric" })}: ${isSampleBooked(date, calendarMonth) ? "Booked" : "Available"}`} key={date.toISOString()}>
+                <b>{date.getDate()}</b><span>{isSampleBooked(date, calendarMonth) ? "Booked" : "Available"}</span>
+              </div>
+            ) : <div className="calendar-day is-empty" aria-hidden="true" key={`empty-${index}`} />)}
+          </div>
+          <div className="calendar-footer"><p>See dates that work?</p><a className="button" href="mailto:Marg@sunshinerentals.net?subject=Coquina%20Cove%20availability%20request">Ask about your stay <span>↗</span></a></div>
+        </div>
+      </section>
+
       <section className="inquiry" id="inquire">
         <img src="/images/gulf-sunset.jpg" alt="Pink and gold Gulf sunset" />
         <div className="inquiry-content">
@@ -213,7 +258,7 @@ export default function Home() {
       <footer>
         <div className="footer-brand"><span className="brand-mark">CC</span><div><strong>Coquina Cove</strong><small>Manasota Key · Florida</small></div></div>
         <p>A private Gulf-front vacation home<br />in Englewood, Florida.</p>
-        <div className="footer-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#explore">Explore</a><a href="#inquire">Availability</a></div>
+        <div className="footer-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#explore">Explore</a><a href="#availability">Availability</a></div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Coquina Cove</span><a href="#top">Back to top ↑</a></div>
       </footer>
 
