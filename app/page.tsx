@@ -7,12 +7,11 @@ const photoGroups = [
     title: "Great Room & Views",
     photos: [
       { src: "/images/balcony-view.jpg", alt: "Beach and Gulf viewed from the balcony", label: "Balcony view" },
-      { src: "/images/big-window.jpg", alt: "Arched picture window framing the beach and Gulf", label: "The arched window" },
+      { src: "/images/big-window-straightened.jpg", alt: "Straightened arched picture window framing the beach and Gulf", label: "The arched window" },
       { src: "/images/living-area.jpg", alt: "Dining and living area with a broad Gulf view", label: "Living by the water" },
       { src: "/images/kitchen-island.jpg", alt: "Open kitchen and dining room with Gulf views", label: "Open-plan great room" },
       { src: "/images/kitchen-view.jpg", alt: "Bright fully equipped kitchen", label: "The kitchen" },
       { src: "/images/deck-sunset.jpeg", alt: "Sunset over the Gulf from Coquina Cove's covered deck", label: "The sunset deck" },
-      { src: "/images/golden-hour-2.jpg", alt: "Golden sunset viewed from the deck", label: "Deck at golden hour" },
       { src: "/images/beach-view.jpg", alt: "Quiet beach and Gulf view from Coquina Cove", label: "Your backyard" },
       { src: "/images/gulf-sunset.jpg", alt: "Pink sunset over the Gulf of Mexico", label: "Gulf sunset" },
     ],
@@ -120,7 +119,7 @@ export default function Home() {
       <section className="intro section" id="stay">
         <div className="section-tag"><span>01</span> Your place by the Gulf</div>
         <div className="intro-grid">
-          <div>
+          <div className="intro-heading">
             <p className="eyebrow">Easygoing by nature</p>
             <h2>Wake up with the Gulf.<br />Wind down with the sun.</h2>
           </div>
@@ -129,17 +128,16 @@ export default function Home() {
             <p>Inside, the bright open living space brings everyone together. Outside, the covered deck is ready for slow breakfasts, dolphin sightings, and the kind of sunsets you’ll talk about long after you leave.</p>
           </div>
         </div>
-        <div className="feature-grid">
-          <figure className="feature-main"><img src="/images/beach-view.jpg" alt="Quiet Gulf beach behind Coquina Cove" /><figcaption>Beach access, just beyond the sea oats</figcaption></figure>
+        <div className="feature-grid feature-quote-grid">
+          <figure className="feature-main"><img src="/images/house-front.jpg" alt="Coquina Cove viewed from the beach" /><figcaption>Your Gulf-front home on Manasota Key</figcaption></figure>
           <div className="feature-side">
-            <figure><img src="/images/kitchen-island.jpg" alt="Open kitchen with a view toward the Gulf" /></figure>
             <blockquote>“From the moment you walk in the door at Coquina Cove, the view of the ocean and beach will take your breath away.”<cite>— From the guest book</cite></blockquote>
           </div>
         </div>
       </section>
 
       <section className="details section">
-        <div className="details-image"><img src="/images/house-front.jpg" alt="Coquina Cove viewed from the beach" /><span className="stamp">Gulf<br />front</span></div>
+        <div className="details-image"><img src="/images/statue-outside.jpg" alt="Coquina Cove and its beachside statue" /><span className="stamp">Gulf<br />front</span></div>
         <div className="details-content">
           <p className="eyebrow">Everything you need</p>
           <h2>Come as you are.<br />We’ve thought of the rest.</h2>
