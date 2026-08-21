@@ -54,6 +54,7 @@ h1 em,h2 em { color:var(--sun); font-weight:400; }
 .intro h2,.gallery h2 { font-size:clamp(45px,5vw,74px); }
 .intro-heading { text-align:center; }
 .intro-heading .eyebrow::before { display:none; }
+.wind-down-line { white-space:nowrap; font-size:clamp(30px,4.25vw,64px); }
 .intro-copy { padding-top:38px; font:17px/1.75 Georgia,serif; color:#3d5258; }
 .intro-copy p { margin:0 0 20px; }
 .feature-grid { display:grid; grid-template-columns:1.45fr .55fr; gap:24px; margin-top:80px; }

@@ -121,7 +121,7 @@ export default function Home() {
         <div className="intro-grid">
           <div className="intro-heading">
             <p className="eyebrow">Easygoing by nature</p>
-            <h2>Wake up with the Gulf.<br />Wind down with the sun.</h2>
+            <h2>Wake up with the Gulf.<br /><span className="wind-down-line">Wind down with the sun.</span></h2>
           </div>
           <div className="intro-copy">
             <p>At Coquina Cove, the beach isn’t a destination—it’s your backyard. Slide open the doors, follow the path through the sea oats, and you’re there.</p>
