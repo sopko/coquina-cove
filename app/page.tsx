@@ -199,12 +199,12 @@ export default function Home() {
           <h2>Old Florida,<br />at your own pace.</h2>
           <p>Walk to island restaurants and live music, hunt for shark teeth, rent a boat, or wander Stump Pass Beach State Park just half a mile away.</p>
           <ul>
-            <li><span>5 min</span> Stump Pass Beach State Park</li>
             <li><span>Walk</span> Dining & live music</li>
-            <li><span>35 mi</span> City of Sarasota</li>
-            <li><span>45 mi</span> Sarasota–Bradenton Airport</li>
-            <li><span>65 mi</span> Fort Myers Airport</li>
-            <li><span>100 mi</span> Tampa Airport</li>
+            <li><span>5 min</span> Stump Pass Beach State Park</li>
+            <li><span>33 mi</span> City of Sarasota</li>
+            <li><span>44 mi</span> Sarasota–Bradenton Airport</li>
+            <li><span>67 mi</span> Fort Myers Airport</li>
+            <li><span>92 mi</span> Tampa Airport</li>
           </ul>
           <a href="https://www.google.com/maps/search/?api=1&query=50+Coquina+Ln+Englewood+FL+34223" target="_blank" rel="noreferrer">Open in Maps ↗</a>
         </div>
