@@ -48,7 +48,6 @@ const photoGroups = [
     title: "View from Downstairs Area",
     photos: [
       { src: "/images/gulf-view.jpeg", alt: "Gulf sunset framed by the downstairs patio", label: "View from downstairs" },
-      { src: "/images/golden-hour-3.jpg", alt: "Sunset framed by the ground-floor patio", label: "Sunset downstairs" },
       { src: "/images/statue-outside.jpg", alt: "Coquina Cove and its beachside statue on a clear day", label: "Steps from the sand" },
       { src: "/images/gulf-photo.jpg", alt: "Sunset waves along the Manasota Key shoreline", label: "Evening shoreline" },
       { src: "/images/golden-hour-1.jpg", alt: "Palm silhouettes at golden hour", label: "Golden hour palms" },
@@ -63,8 +62,8 @@ const photos = photoGroups.flatMap((group) => group.photos);
 const amenities = [
   ["Sleep easy", "1 king · 2 queens · sleeps 6"],
   ["Live outdoors", "Covered Gulf-view deck · grill · outdoor shower"],
-  ["Settle in", "Full kitchen · linens · laundry · central A/C"],
-  ["Bring the toys", "Oversized two-car garage with boat or camper space"],
+  ["Settle in", "Well-stocked kitchen · linens · laundry · central A/C"],
+  ["Bring the toys", "Oversized two-car garage · ground-floor storage area with refrigerator"],
 ];
 
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -139,7 +138,7 @@ export default function Home() {
             <h2>Wake up with the Gulf.<br /><span className="wind-down-line">Wind down with the sun.</span></h2>
           </div>
           <div className="intro-copy">
-            <p>At Coquina Cove, the beach isn’t a destination—it’s your backyard. Slide open the doors, follow the path through the sea oats, and you’re there.</p>
+            <p>At Coquina Cove, the beach isn’t a destination—it’s your backyard. Step right outside, follow the path through the sea oats, and you’re there.</p>
             <p>Inside, the bright open living space brings everyone together. Outside, the covered deck is ready for slow breakfasts, dolphin sightings, and the kind of sunsets you’ll talk about long after you leave.</p>
           </div>
         </div>
@@ -159,7 +158,7 @@ export default function Home() {
           <div className="amenity-list">
             {amenities.map(([title, text], index) => <div className="amenity" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}
           </div>
-          <p className="fine-print">Plus beach chairs and umbrellas, Wi-Fi, four TVs, books, games, five dining spots, and a fireplace available by request.</p>
+          <p className="fine-print">Plus beach chairs and umbrellas, Wi-Fi, four TVs, books, and games.</p>
         </div>
       </section>
 
@@ -202,7 +201,10 @@ export default function Home() {
           <ul>
             <li><span>5 min</span> Stump Pass Beach State Park</li>
             <li><span>Walk</span> Dining & live music</li>
+            <li><span>35 mi</span> City of Sarasota</li>
             <li><span>45 mi</span> Sarasota–Bradenton Airport</li>
+            <li><span>65 mi</span> Fort Myers Airport</li>
+            <li><span>100 mi</span> Tampa Airport</li>
           </ul>
           <a href="https://www.google.com/maps/search/?api=1&query=50+Coquina+Ln+Englewood+FL+34223" target="_blank" rel="noreferrer">Open in Maps ↗</a>
         </div>
@@ -241,8 +243,8 @@ export default function Home() {
             ) : <div className="calendar-day is-empty" aria-hidden="true" key={`empty-${index}`} />)}
           </div>
           <div className="calendar-footer">
-            <div><p>See dates that work?</p><small>Most stays run Saturday to Saturday. Contact Sunshine Rentals to confirm your week.</small></div>
-            <a className="button button-light" href="mailto:Marg@sunshinerentals.net?subject=Coquina%20Cove%20availability%20request">Contact Sunshine Rentals <span>↗</span></a>
+            <div><p>See dates that work?</p><small>Most stays run Saturday to Saturday. Contact Marg at Sunshine Rentals to confirm your week.</small></div>
+            <address className="booking-agent"><strong>Marg · Booking agent</strong><a href="mailto:marg@sunshinerentals.net">marg@sunshinerentals.net</a><span><small>USA</small><a href="tel:+18005198668">800-519-8668</a></span><span><small>Calling from Canada</small><a href="tel:+15193076568">519-307-6568</a></span></address>
           </div>
         </div>
       </section>

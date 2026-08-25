@@ -146,6 +146,12 @@ figure { margin:0; }
 .calendar-footer p { margin:0 0 7px; font:30px Georgia,serif; }
 .calendar-footer small { display:block; max-width:580px; font-size:10px; line-height:1.5; letter-spacing:.06em; }
 .calendar-footer .button { flex:none; color:white; border-color:rgba(255,255,255,.8); }
+.booking-agent { display:grid; gap:8px; min-width:260px; padding-left:28px; border-left:1px solid rgba(255,255,255,.45); font-style:normal; }
+.booking-agent strong { font:20px Georgia,serif; }
+.booking-agent>a { font-size:12px; text-decoration:underline; text-underline-offset:4px; }
+.booking-agent span { display:grid; grid-template-columns:1fr auto; align-items:baseline; gap:20px; }
+.booking-agent span small { font-size:8px; text-transform:uppercase; letter-spacing:.12em; }
+.booking-agent span a { font-size:13px; font-weight:700; }
 footer { display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:40px; padding:70px 7vw 25px; background:#0b222a; color:white; }
 footer>p { margin:0; color:#9eb0b2; font:14px/1.6 Georgia,serif; }
 .footer-links { display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:10px; text-transform:uppercase; letter-spacing:.14em; }
@@ -218,6 +224,7 @@ footer>p { margin:0; color:#9eb0b2; font:14px/1.6 Georgia,serif; }
   .calendar-day span { margin-top:10px; font-size:7px; }
   .calendar-toolbar strong { font-size:25px; }
   .calendar-footer { align-items:flex-start; flex-direction:column; margin-top:26px; padding:28px 20px; }
+  .booking-agent { width:100%; min-width:0; padding:22px 0 0; border-top:1px solid rgba(255,255,255,.45); border-left:0; }
   footer { grid-template-columns:1fr; }
   .footer-bottom { grid-column:1; }
   .lightbox { grid-template-columns:42px 1fr 42px; padding:15px 6px; }
