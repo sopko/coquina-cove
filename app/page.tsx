@@ -68,19 +68,12 @@ const amenities = [
 
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-function parseBookedDates(ical: string) {
+function expandBookedDates(bookings: Array<{ start: string; endExclusive: string }>) {
   const dates = new Set<string>();
-  const unfolded = ical.replace(/\r?\n[ \t]/g, "");
-  const events = unfolded.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) ?? [];
-  events.forEach((event) => {
-    if (/\nSTATUS:CANCELLED/i.test(event) || /\nTRANSP:TRANSPARENT/i.test(event)) return;
-    const startValue = event.match(/\nDTSTART(?:;[^:]*)?:(\d{8})/)?.[1];
-    const endValue = event.match(/\nDTEND(?:;[^:]*)?:(\d{8})/)?.[1];
-    if (!startValue) return;
-    const toDate = (value: string) => new Date(Date.UTC(Number(value.slice(0, 4)), Number(value.slice(4, 6)) - 1, Number(value.slice(6, 8))));
-    const start = toDate(startValue);
-    let end = endValue ? toDate(endValue) : new Date(start.getTime() + 86400000);
-    if (end <= start) end = new Date(start.getTime() + 86400000);
+  bookings.forEach(({ start: startValue, endExclusive }) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(startValue) || !/^\d{4}-\d{2}-\d{2}$/.test(endExclusive)) return;
+    const start = new Date(`${startValue}T00:00:00Z`);
+    const end = new Date(`${endExclusive}T00:00:00Z`);
     for (let date = new Date(start); date < end; date.setUTCDate(date.getUTCDate() + 1)) dates.add(date.toISOString().slice(0, 10));
   });
   return dates;
@@ -108,9 +101,9 @@ export default function Home() {
   }, [activePhoto]);
 
   useEffect(() => {
-    fetch("/api/availability", { headers: { Accept: "text/calendar" } })
-      .then((response) => { if (!response.ok) throw new Error("Calendar unavailable"); return response.text(); })
-      .then((ical) => { setBookedDates(parseBookedDates(ical)); setCalendarStatus("live"); })
+    fetch("/api/availability", { headers: { Accept: "application/json" } })
+      .then((response) => { if (!response.ok) throw new Error("Calendar unavailable"); return response.json(); })
+      .then((data) => { if (!data.ok || !Array.isArray(data.bookings)) throw new Error("Invalid calendar data"); setBookedDates(expandBookedDates(data.bookings)); setCalendarStatus("live"); })
       .catch(() => setCalendarStatus("error"));
   }, []);
 
