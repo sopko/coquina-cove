@@ -124,7 +124,11 @@ figure { margin:0; }
 .calendar-legend i { width:11px; height:11px; border-radius:50%; }
 .available-dot { background:var(--sea); }
 .booked-dot { background:var(--coral); }
-.sample-notice { display:block; color:#6f7f80; font:10px/1.5 Arial,sans-serif; letter-spacing:.04em; }
+.calendar-sync { display:flex; align-items:center; gap:8px; color:#6f7f80; font:10px/1.5 Arial,sans-serif; letter-spacing:.04em; }
+.calendar-sync i { width:8px; height:8px; border-radius:50%; background:#9aa7a7; }
+.calendar-sync.live i { background:#4b8c7d; box-shadow:0 0 0 4px rgba(75,140,125,.12); }
+.calendar-sync.error { color:#a3422e; }
+.calendar-sync.error i { background:var(--coral); }
 .calendar-shell { margin-top:60px; padding:clamp(22px,4vw,54px); background:var(--paper); box-shadow:0 20px 60px rgba(16,43,52,.08); }
 .calendar-toolbar { display:grid; grid-template-columns:52px 1fr 52px; align-items:center; margin-bottom:28px; text-align:center; }
 .calendar-toolbar button { width:46px; height:46px; border:1px solid #bdc9c7; border-radius:50%; background:transparent; color:var(--ink); cursor:pointer; }
@@ -141,6 +145,8 @@ figure { margin:0; }
 .calendar-day.is-booked { background:#f5ddd6; }
 .calendar-day.is-booked b { background:var(--coral); color:white; }
 .calendar-day.is-booked span { color:#a3422e; }
+.calendar-day.is-loading { color:#899697; background:#f7f7f3; }
+.calendar-day.is-loading span { color:#899697; }
 .calendar-day.is-empty { background:#f4f3ed; }
 .calendar-footer { display:flex; align-items:center; justify-content:space-between; gap:30px; margin-top:34px; padding:34px; background:var(--coral); color:white; }
 .calendar-footer p { margin:0 0 7px; font:30px Georgia,serif; }

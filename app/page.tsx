@@ -68,17 +68,30 @@ const amenities = [
 
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-function isSampleBooked(date: Date, monthOffset: number) {
-  const day = date.getDate();
-  return (monthOffset % 3 === 0 && day >= 7 && day <= 13) ||
-    (monthOffset % 3 === 1 && day >= 18 && day <= 24) ||
-    (monthOffset % 3 === 2 && ((day >= 4 && day <= 8) || (day >= 22 && day <= 27)));
+function parseBookedDates(ical: string) {
+  const dates = new Set<string>();
+  const unfolded = ical.replace(/\r?\n[ \t]/g, "");
+  const events = unfolded.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) ?? [];
+  events.forEach((event) => {
+    if (/\nSTATUS:CANCELLED/i.test(event) || /\nTRANSP:TRANSPARENT/i.test(event)) return;
+    const startValue = event.match(/\nDTSTART(?:;[^:]*)?:(\d{8})/)?.[1];
+    const endValue = event.match(/\nDTEND(?:;[^:]*)?:(\d{8})/)?.[1];
+    if (!startValue) return;
+    const toDate = (value: string) => new Date(Date.UTC(Number(value.slice(0, 4)), Number(value.slice(4, 6)) - 1, Number(value.slice(6, 8))));
+    const start = toDate(startValue);
+    let end = endValue ? toDate(endValue) : new Date(start.getTime() + 86400000);
+    if (end <= start) end = new Date(start.getTime() + 86400000);
+    for (let date = new Date(start); date < end; date.setUTCDate(date.getUTCDate() + 1)) dates.add(date.toISOString().slice(0, 10));
+  });
+  return dates;
 }
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
   const [calendarMonth, setCalendarMonth] = useState(0);
+  const [bookedDates, setBookedDates] = useState<Set<string>>(new Set());
+  const [calendarStatus, setCalendarStatus] = useState<"loading" | "live" | "error">("loading");
   const today = new Date();
   const viewMonth = new Date(today.getFullYear(), today.getMonth() + calendarMonth, 1);
   const daysInMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0).getDate();
@@ -93,6 +106,13 @@ export default function Home() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [activePhoto]);
+
+  useEffect(() => {
+    fetch("/api/availability", { headers: { Accept: "text/calendar" } })
+      .then((response) => { if (!response.ok) throw new Error("Calendar unavailable"); return response.text(); })
+      .then((ical) => { setBookedDates(parseBookedDates(ical)); setCalendarStatus("live"); })
+      .catch(() => setCalendarStatus("error"));
+  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -225,7 +245,7 @@ export default function Home() {
           <div className="availability-copy">
             <p>Browse the next twelve months to find an open week. Dates marked booked are unavailable; all other future dates are currently open.</p>
             <div className="calendar-legend"><span><i className="available-dot" />Available</span><span><i className="booked-dot" />Booked</span></div>
-            <small className="sample-notice">Sample availability for layout review. Live Google Calendar dates will replace these when connected.</small>
+            <small className={`calendar-sync ${calendarStatus}`}><i />{calendarStatus === "loading" ? "Checking live availability…" : calendarStatus === "live" ? "Live availability · synced with Google Calendar" : "Live calendar is temporarily unavailable. Please contact Marg to confirm dates."}</small>
           </div>
         </div>
         <div className="calendar-shell">
@@ -236,11 +256,14 @@ export default function Home() {
           </div>
           <div className="calendar-grid" role="grid" aria-label={`Availability for ${viewMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}`}>
             {weekDays.map((day) => <div className="calendar-weekday" role="columnheader" key={day}>{day}</div>)}
-            {calendarDays.map((date, index) => date ? (
-              <div className={`calendar-day ${isSampleBooked(date, calendarMonth) ? "is-booked" : "is-available"}`} role="gridcell" aria-label={`${date.toLocaleDateString("en-US", { month: "long", day: "numeric" })}: ${isSampleBooked(date, calendarMonth) ? "Booked" : "Available"}`} key={date.toISOString()}>
-                <b>{date.getDate()}</b><span>{isSampleBooked(date, calendarMonth) ? "Booked" : "Available"}</span>
+            {calendarDays.map((date, index) => date ? (() => {
+              const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+              const booked = bookedDates.has(key);
+              const status = calendarStatus === "loading" ? "Checking" : booked ? "Booked" : "Available";
+              return <div className={`calendar-day ${calendarStatus === "loading" ? "is-loading" : booked ? "is-booked" : "is-available"}`} role="gridcell" aria-label={`${date.toLocaleDateString("en-US", { month: "long", day: "numeric" })}: ${status}`} key={date.toISOString()}>
+                <b>{date.getDate()}</b><span>{status}</span>
               </div>
-            ) : <div className="calendar-day is-empty" aria-hidden="true" key={`empty-${index}`} />)}
+            })() : <div className="calendar-day is-empty" aria-hidden="true" key={`empty-${index}`} />)}
           </div>
           <div className="calendar-footer">
             <div><p>See dates that work?</p><small>Most stays run Saturday to Saturday. Contact Marg at Sunshine Rentals to confirm your week.</small></div>
