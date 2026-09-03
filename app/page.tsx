@@ -236,7 +236,7 @@ export default function Home() {
             <h2>Find your<br />open dates.</h2>
           </div>
           <div className="availability-copy">
-            <p>Browse the next twelve months to find an open week. Dates marked booked are unavailable; all other future dates are currently open.</p>
+            <p>Browse available dates for 2026. For stays in 2027 or later, please contact Marg at Sunshine Rentals.</p>
             <div className="calendar-legend"><span><i className="available-dot" />Available</span><span><i className="booked-dot" />Booked</span></div>
             <small className={`calendar-sync ${calendarStatus}`}><i />{calendarStatus === "loading" ? "Checking live availability…" : calendarStatus === "live" ? "Live availability · synced with Google Calendar" : "Live calendar is temporarily unavailable. Please contact Marg to confirm dates."}</small>
           </div>
@@ -247,7 +247,7 @@ export default function Home() {
             <div><strong>{viewMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}</strong><small>Month {calendarMonth + 1} of 12</small></div>
             <button type="button" onClick={() => setCalendarMonth(Math.min(11, calendarMonth + 1))} disabled={calendarMonth === 11} aria-label="Next month">→</button>
           </div>
-          <div className="calendar-grid" role="grid" aria-label={`Availability for ${viewMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}`}>
+          {viewMonth.getFullYear() >= 2027 ? <div className="calendar-contact" role="status"><h3>Planning a stay in {viewMonth.getFullYear()}?</h3><p>Please contact Marg, our booking agent, for availability and help planning your visit.</p><a className="button" href="mailto:marg@sunshinerentals.net?subject=Coquina%20Cove%20future%20availability">Contact Marg <span>↗</span></a></div> : <div className="calendar-grid" role="grid" aria-label={`Availability for ${viewMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}`}>
             {weekDays.map((day) => <div className="calendar-weekday" role="columnheader" key={day}>{day}</div>)}
             {calendarDays.map((date, index) => date ? (() => {
               const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
@@ -258,6 +258,7 @@ export default function Home() {
               </div>
             })() : <div className="calendar-day is-empty" aria-hidden="true" key={`empty-${index}`} />)}
           </div>
+          }
           <div className="calendar-footer">
             <div><p>See dates that work?</p><small>Most stays run Saturday to Saturday. Contact Marg at Sunshine Rentals to confirm your week.</small></div>
             <address className="booking-agent"><strong>Marg · Booking agent</strong><a href="mailto:marg@sunshinerentals.net">marg@sunshinerentals.net</a><span><small>USA</small><a href="tel:+18005198668">800-519-8668</a></span><span><small>Calling from Canada</small><a href="tel:+15193076568">519-307-6568</a></span></address>

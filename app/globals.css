@@ -116,6 +116,9 @@ figure { margin:0; }
 .testimonial blockquote em { color:var(--coral); font-weight:400; }
 .testimonial p { font-size:9px; text-transform:uppercase; letter-spacing:.2em; color:#698084; }
 .availability { background:var(--cream); }
+.calendar-contact { padding:70px 24px; text-align:center; background:var(--cream); }
+.calendar-contact h3 { margin:0 0 18px; font:32px Georgia,serif; }
+.calendar-contact p { max-width:480px; margin:0 auto 28px; font:17px/1.6 Georgia,serif; }
 .availability-intro { display:grid; grid-template-columns:1fr 1fr; gap:8vw; align-items:end; }
 .availability h2 { font-size:clamp(48px,5.5vw,78px); }
 .availability-copy { max-width:560px; color:#3d5258; font:17px/1.7 Georgia,serif; }
