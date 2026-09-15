@@ -234,7 +234,7 @@ export default function Home() {
         <article className="review-card">
           <div className="review-stars" aria-label="Five-star review">★★★★★</div>
           <blockquote>“Beach house with an amazing location on Englewood Beach! House has amazing amenities and is very well stocked with necessities. Beach chairs and umbrellas are available which is a plus. Thank you for letting us share your beautiful home!”</blockquote>
-          <div className="review-meta"><strong>Maggie Crumrine</strong><a href="https://email.floridarentals.com/c/eJxkzb1uwyAUxfGngTHC92KCB4ZKkccOfQHrGl9iJIMjjMPrV-nHUHU95yf9F0chGHOV7LqrHRANAsrVXQc1z6h9mK0BFZZ-wD54o-2sEagjGR0oMGroELoeFF5gNpbswB6UNqEjoVXY9hIXKpwrbcfF70lubq31cQh8EzAKGFtrl_9MwNhb9RI4njVNx34WzwJvf6kA83oTL_FMAm-cKG4_o6f0oHjPAm97y1zeuX3wM3KTxSUqd6HVceZjjZl_w5mrrO5LT5nbVL7908FnAAAA__83bWBy" target="_blank" rel="noreferrer">Coquina Cove — The ultimate Gulf-front vacation <span>↗</span></a></div>
+          <div className="review-meta"><strong>Florida Rentals Reviewer</strong><a href="https://email.floridarentals.com/c/eJxkzb1uwyAUxfGngTHC92KCB4ZKkccOfQHrGl9iJIMjjMPrV-nHUHU95yf9F0chGHOV7LqrHRANAsrVXQc1z6h9mK0BFZZ-wD54o-2sEagjGR0oMGroELoeFF5gNpbswB6UNqEjoVXY9hIXKpwrbcfF70lubq31cQh8EzAKGFtrl_9MwNhb9RI4njVNx34WzwJvf6kA83oTL_FMAm-cKG4_o6f0oHjPAm97y1zeuX3wM3KTxSUqd6HVceZjjZl_w5mrrO5LT5nbVL7908FnAAAA__83bWBy" target="_blank" rel="noreferrer">Coquina Cove — The ultimate Gulf-front vacation <span>↗</span></a></div>
         </article>
       </section>
 
