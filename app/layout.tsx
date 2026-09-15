@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Coquina Cove | Gulf-Front Vacation Home on Manasota Key",
     description: "A private three-bedroom Gulf-front vacation home on Manasota Key in Englewood, Florida.",
+    icons: { icon: "/favicon.ico" },
     openGraph: {
       title: "Coquina Cove",
       description: "Gulf-front on Manasota Key.",
