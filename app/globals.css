@@ -73,6 +73,7 @@ figure { margin:0; }
 .feature-side img { height:100%; object-fit:cover; }
 .feature-side blockquote { margin:0; padding:42px; background:var(--coral); color:white; font:20px/1.55 Georgia,serif; }
 .feature-quote-grid .feature-side blockquote { display:flex; flex:1; flex-direction:column; justify-content:center; }
+.feature-quote-grid .feature-side { height:650px; }
 .feature-side cite { display:block; margin-top:24px; font:9px Arial,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 .details { display:grid; grid-template-columns:1fr 1fr; min-height:780px; padding:0; background:var(--cream); }
 .details-image { position:relative; min-height:780px; overflow:hidden; }
@@ -212,6 +213,7 @@ footer>p { margin:0; color:#9eb0b2; font:14px/1.6 Georgia,serif; }
   .intro-copy { padding-top:10px; }
   .feature-grid { grid-template-columns:1fr; margin-top:48px; }
   .feature-main img { height:440px; }
+  .feature-quote-grid .feature-side { height:auto; }
   .feature-side { display:grid; grid-template-columns:1fr 1fr; }
   .details-image { min-height:580px; }
   .details-content { padding:80px 7vw; }
