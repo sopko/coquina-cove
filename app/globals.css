@@ -121,6 +121,15 @@ figure { margin:0; }
 .quote-mark { color:var(--coral); font:80px/1 Georgia,serif; }
 .testimonial blockquote { margin:0 auto 24px; font:clamp(34px,4.5vw,66px)/1.18 Georgia,serif; }
 .testimonial blockquote em { color:var(--coral); font-weight:400; }
+.guest-review { display:grid; grid-template-columns:.7fr 1.3fr; gap:8vw; align-items:center; background:var(--paper); }
+.guest-review h2 { font-size:clamp(48px,5.5vw,78px); }
+.review-card { padding:clamp(34px,5vw,70px); background:var(--cream); }
+.review-stars { margin-bottom:24px; color:var(--coral); font-size:14px; letter-spacing:.25em; }
+.review-card blockquote { margin:0 0 34px; color:#29454d; font:clamp(21px,2.1vw,30px)/1.55 Georgia,serif; }
+.review-meta { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding-top:24px; border-top:1px solid #d5d3ca; }
+.review-meta strong { font:600 14px Georgia,serif; }
+.review-meta a { color:#557079; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.review-meta a:hover { color:var(--coral); }
 .testimonial p { font-size:9px; text-transform:uppercase; letter-spacing:.2em; color:#698084; }
 .availability { background:var(--cream); }
 .calendar-contact { padding:70px 24px; text-align:center; background:var(--cream); }
@@ -199,7 +208,7 @@ footer>p { margin:0; color:#9eb0b2; font:14px/1.6 Georgia,serif; }
   .scroll-cue { display:none; }
   .section { padding:82px 7vw; }
   .section-tag { margin-bottom:45px; }
-  .intro-grid,.details,.gallery-heading,.availability-intro { grid-template-columns:1fr; }
+  .intro-grid,.details,.gallery-heading,.availability-intro,.guest-review { grid-template-columns:1fr; }
   .intro-copy { padding-top:10px; }
   .feature-grid { grid-template-columns:1fr; margin-top:48px; }
   .feature-main img { height:440px; }
