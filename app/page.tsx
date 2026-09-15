@@ -238,7 +238,7 @@ export default function Home() {
           <div className="availability-copy">
             <p>Browse available dates for 2026. For stays in 2027 or later, please contact our booking agent at Sunshine Rentals.</p>
             <div className="calendar-legend"><span><i className="available-dot" />Available</span><span><i className="booked-dot" />Booked</span></div>
-            <small className={`calendar-sync ${calendarStatus}`}><i />{calendarStatus === "loading" ? "Checking live availability…" : calendarStatus === "live" ? "Live availability · synced with Google Calendar" : "Live calendar is temporarily unavailable. Please contact our booking agent to confirm dates."}</small>
+            {calendarStatus !== "live" && <small className={`calendar-sync ${calendarStatus}`}><i />{calendarStatus === "loading" ? "Checking live availability…" : "Live calendar is temporarily unavailable. Please contact our booking agent to confirm dates."}</small>}
           </div>
         </div>
         <div className="calendar-shell">
@@ -267,7 +267,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-brand"><img src="/images/coquina-cove-logo-modern.png" alt="Coquina Cove — Manasota Key, Florida" /></div>
+        <div className="footer-brand"><img src="/images/coquina-cove-logo-white-text.png" alt="Coquina Cove — Manasota Key, Florida" /></div>
         <p>A private Gulf-front vacation home<br />in Englewood, Florida.</p>
         <div className="footer-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#explore">Explore</a><a href="#availability">Availability</a></div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Coquina Cove</span><a href="#top">Back to top ↑</a></div>
