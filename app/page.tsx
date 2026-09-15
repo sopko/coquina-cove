@@ -113,7 +113,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Coquina Cove home" onClick={closeMenu}>
-          <img src="/images/coquina-cove-logo-modern.png" alt="Coquina Cove — Manasota Key, Florida" />
+          <img src="/images/coquina-cove-logo-white-text.png" alt="Coquina Cove — Manasota Key, Florida" />
         </a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
           <span></span><span></span>
