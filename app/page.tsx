@@ -113,8 +113,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Coquina Cove home" onClick={closeMenu}>
-          <span className="brand-mark">CC</span>
-          <span><strong>Coquina Cove</strong><small>Manasota Key · Florida</small></span>
+          <img src="/images/coquina-cove-logo-modern.png" alt="Coquina Cove — Manasota Key, Florida" />
         </a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
           <span></span><span></span>
@@ -136,6 +135,7 @@ export default function Home() {
           <h1>Life looks better<br /><em>from the water’s edge.</em></h1>
           <p className="hero-copy">A light-filled three-bedroom home where quiet beach days flow into front-row sunsets.</p>
           <a className="button button-light" href="#availability">Check availability <span>↗</span></a>
+          <div className="hero-booking-credit"><strong>Brought to you by Sunshine Vacation Rentals</strong><span><a href="tel:+18005198668">800-519-8668</a><i aria-hidden="true">·</i><a href="mailto:marg@sunshinerentals.net">marg@sunshinerentals.net</a></span></div>
         </div>
         <div className="hero-facts" aria-label="Property highlights">
           <span><b>6</b> guests</span><span><b>3</b> bedrooms</span><span><b>2</b> baths</span><span><b>0</b> steps to the sand</span>
@@ -267,7 +267,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-brand"><span className="brand-mark">CC</span><div><strong>Coquina Cove</strong><small>Manasota Key · Florida</small></div></div>
+        <div className="footer-brand"><img src="/images/coquina-cove-logo-modern.png" alt="Coquina Cove — Manasota Key, Florida" /></div>
         <p>A private Gulf-front vacation home<br />in Englewood, Florida.</p>
         <div className="footer-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#explore">Explore</a><a href="#availability">Availability</a></div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Coquina Cove</span><a href="#top">Back to top ↑</a></div>
