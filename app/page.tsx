@@ -130,7 +130,7 @@ export default function Home() {
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow light">A Gulf-front escape on Manasota Key</p>
-          <h1>Life looks better<br /><em>from the water’s edge.</em></h1>
+          <h1><span>Life looks better</span><br /><em>from the water’s edge.</em></h1>
           <p className="hero-copy">A light-filled three-bedroom home where quiet beach days flow into front-row sunsets.</p>
           <a className="button button-light" href="#availability">Check availability <span>↗</span></a>
           <div className="hero-booking-credit"><strong>Brought to you by Sunshine Vacation Rentals</strong><span><a href="tel:+18005198668">800-519-8668</a><i aria-hidden="true">·</i><a href="mailto:marg@sunshinerentals.net">marg@sunshinerentals.net</a></span></div>
