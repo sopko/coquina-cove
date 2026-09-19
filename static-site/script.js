@@ -1,7 +1,6 @@
 const photoGroups = [
   { title: "Great Room & Views", photos: [
     { src: "images/balcony-view.jpg", alt: "Beach and Gulf viewed from the balcony", label: "Balcony view" },
-    { src: "images/big-window-straightened.jpg", alt: "Straightened arched picture window framing the beach and Gulf", label: "The arched window" },
     { src: "images/living-area.jpg", alt: "Dining and living area with a broad Gulf view", label: "Living by the water" },
     { src: "images/kitchen-island.jpg", alt: "Open kitchen and dining room with Gulf views", label: "Open-plan great room" },
     { src: "images/kitchen-view.jpg", alt: "Bright fully equipped kitchen", label: "The kitchen" },
@@ -30,7 +29,6 @@ const photoGroups = [
     { src: "images/statue-outside.jpg", alt: "Coquina Cove and its beachside statue on a clear day", label: "Steps from the sand" },
     { src: "images/gulf-photo.jpg", alt: "Sunset waves along the Manasota Key shoreline", label: "Evening shoreline" },
     { src: "images/golden-hour-1.jpg", alt: "Palm silhouettes at golden hour", label: "Golden hour palms" },
-    { src: "images/garage.jpg", alt: "Coquina Cove garage and parking area", label: "Garage and parking" },
     { src: "images/house-front.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" }
   ]}
 ];
