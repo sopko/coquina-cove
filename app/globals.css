@@ -68,7 +68,8 @@ h1 em,h2 em { color:var(--sun); font-weight:400; }
 .intro-copy p { margin:0 0 20px; }
 .feature-grid { display:grid; grid-template-columns:1.45fr .55fr; gap:24px; margin-top:80px; }
 figure { margin:0; }
-.feature-main img { height:650px; object-fit:cover; object-position:right center; }
+.feature-main { overflow:hidden; }
+.feature-main img { width:135%; max-width:none; height:650px; margin-left:-35%; object-fit:cover; object-position:right center; }
 .feature-main figcaption { padding-top:12px; font-size:9px; text-transform:uppercase; letter-spacing:.16em; color:#64777b; }
 .feature-side { display:flex; flex-direction:column; gap:24px; }
 .feature-side figure { flex:1; }
