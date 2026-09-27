@@ -29,7 +29,7 @@ const photoGroups = [
     { src: "images/statue-outside.jpg", alt: "Coquina Cove and its beachside statue on a clear day", label: "Steps from the sand" },
     { src: "images/gulf-photo.jpg", alt: "Sunset waves along the Manasota Key shoreline", label: "Evening shoreline" },
     { src: "images/golden-hour-1.jpg", alt: "Palm silhouettes at golden hour", label: "Golden hour palms" },
-    { src: "images/house-front-hero.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" }
+    { src: "images/house-front-hero-v2.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" }
   ]}
 ];
 
