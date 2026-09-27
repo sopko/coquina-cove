@@ -16,7 +16,7 @@ const photoGroups = [
     ],
   },
   {
-    title: "Living Room Furniture",
+    title: "Living Room",
     photos: [
       { src: "/images/living-room.jpg", alt: "Comfortable living room furniture", label: "Living room seating" },
     ],
@@ -50,7 +50,7 @@ const photoGroups = [
       { src: "/images/statue-outside.jpg", alt: "Coquina Cove and its beachside statue on a clear day", label: "Steps from the sand" },
       { src: "/images/gulf-photo.jpg", alt: "Sunset waves along the Manasota Key shoreline", label: "Evening shoreline" },
       { src: "/images/golden-hour-1.jpg", alt: "Palm silhouettes at golden hour", label: "Golden hour palms" },
-      { src: "/images/house-front.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" },
+      { src: "/images/house-front-hero.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" },
     ],
   },
 ];
@@ -126,7 +126,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <img src="/images/deck-sunset.jpeg" alt="Sun setting over the Gulf from the covered deck" />
+        <img src="/images/house-front-hero.jpg" alt="Coquina Cove beachfront home beneath a blue Florida sky" />
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow light">A Gulf-front escape on Manasota Key</p>
@@ -154,7 +154,7 @@ export default function Home() {
           </div>
         </div>
         <div className="feature-grid feature-quote-grid">
-          <figure className="feature-main"><img src="/images/house-front.jpg" alt="Coquina Cove viewed from the beach" /><figcaption>Your Gulf-front home on Manasota Key</figcaption></figure>
+          <figure className="feature-main"><img src="/images/house-front-hero.jpg" alt="Coquina Cove viewed from the beach" /><figcaption>Your Gulf-front home on Manasota Key</figcaption></figure>
           <div className="feature-side">
             <blockquote>“From the moment you walk in the door at Coquina Cove, the view of the ocean and beach will take your breath away.”<cite>— From the guest book</cite></blockquote>
           </div>

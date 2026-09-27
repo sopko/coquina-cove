@@ -8,7 +8,7 @@ const photoGroups = [
     { src: "images/beach-view.jpg", alt: "Quiet beach and Gulf view from Coquina Cove", label: "Your backyard" },
     { src: "images/gulf-sunset.jpg", alt: "Pink sunset over the Gulf of Mexico", label: "Gulf sunset" }
   ]},
-  { title: "Living Room", photos: [
+  { title: "Living Room Furniture", photos: [
     { src: "images/living-room.jpg", alt: "Comfortable living room furniture", label: "Living room seating" }
   ]},
   { title: "Primary Bedroom", photos: [
@@ -29,7 +29,7 @@ const photoGroups = [
     { src: "images/statue-outside.jpg", alt: "Coquina Cove and its beachside statue on a clear day", label: "Steps from the sand" },
     { src: "images/gulf-photo.jpg", alt: "Sunset waves along the Manasota Key shoreline", label: "Evening shoreline" },
     { src: "images/golden-hour-1.jpg", alt: "Palm silhouettes at golden hour", label: "Golden hour palms" },
-    { src: "images/house-front-hero.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" }
+    { src: "images/house-front.jpg", alt: "Coquina Cove beachfront home", label: "Coquina Cove" }
   ]}
 ];
 
