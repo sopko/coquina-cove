@@ -154,7 +154,7 @@ export default function Home() {
           </div>
         </div>
         <div className="feature-grid feature-quote-grid">
-          <figure className="feature-main"><img src="/images/house-front-hero-v2.jpg" alt="Coquina Cove viewed from the beach" /><figcaption>Your Gulf-front home on Manasota Key</figcaption></figure>
+          <figure className="feature-main"><img src="/images/statue-outside.jpg" alt="Coquina Cove viewed from the beach" /><figcaption>Your Gulf-front home on Manasota Key</figcaption></figure>
           <div className="feature-side">
             <blockquote>“From the moment you walk in the door at Coquina Cove, the view of the ocean and beach will take your breath away.”<cite>— From the guest book</cite></blockquote>
           </div>
@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       <section className="details section">
-        <div className="details-image"><img src="/images/statue-outside.jpg" alt="Coquina Cove and its beachside statue" /></div>
+        <div className="details-image"><img src="/images/coquina-sunset-statues.jpg" alt="Sunset over the Gulf framed by palms and Coquina Cove's beachside statues" /></div>
         <div className="details-content">
           <p className="eyebrow">Everything you need</p>
           <h2>Come as you are.<br />We’ve thought of the rest.</h2>
