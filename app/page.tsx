@@ -277,6 +277,7 @@ export default function Home() {
         <div className="footer-brand"><img src="/images/coquina-cove-logo-white-text.png" alt="Coquina Cove — Manasota Key, Florida" /></div>
         <p>A private Gulf-front vacation home<br />in Englewood, Florida.</p>
         <div className="footer-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#explore">Explore</a><a href="#availability">Availability</a></div>
+        <a className="footer-support" href="https://www.candlelightersswfl.org/" target="_blank" rel="noreferrer"><img src="/images/candlelighters-logo-transparent.png" alt="" /><span>We proudly support the Candlelighters of SWFL</span></a>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Coquina Cove</span><a href="#top">Back to top ↑</a></div>
       </footer>
 
